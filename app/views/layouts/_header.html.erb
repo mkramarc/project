@@ -1,0 +1,17 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="navbar-inner">
+    <div class="container">
+      <%= link_to "project", root_path, id: "logo" %>
+      <nav>
+        <ul class="nav pull-right">
+<% if yield(:title) == 'About' %>
+          <li><%= link_to "Home",    root_path %></li>
+<%else%>        
+          <li><%= link_to "About",    about_path %></li>
+<%end%>        
+          <li><%= link_to "Sign in", '#' %></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
