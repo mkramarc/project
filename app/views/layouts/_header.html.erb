@@ -1,17 +1,25 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="navbar-inner">
-    <div class="container">
-      <%= link_to "Interactive", root_path, id: "logo" %>
-      <nav>
-        <ul class="nav pull-right">
-<% if yield(:title) == 'About' %>
+ <div class="navbar-inner">
+  <div class="container">
+  <%= link_to "Interactive", root_path, id: "logo" %>
+   <nav>
+   <ul class="nav pull-right">
+ 		<% if yield(:title) == 'About' %>
           <li><%= link_to "Home",    home_path %></li>
-<%else%>        
-          <li><%= link_to "About",    about_path %></li>
-<%end%>        
-          <li><%= link_to "Sign in", '#' %></li>
-        </ul>
-      </nav>
-    </div>
+ 		<%elsif  yield(:title) == 'Home' %>        
+          <li><%= link_to "About",   about_path %></li>
+ 		<%else%>        
+          <li><%= link_to "Home",    home_path %></li>
+ 		<%end%> 
+      <% if yield(:title) != 'Sign up' and yield(:title) != 'Sign in' %> 
+        <% if signed_in? %>  
+         <li>  <%= link_to "Sign out", signout_path, method: "delete" %></li>
+        <% else %>
+         <li><%= link_to "Sign in", signin_path %></li>
+        <% end %>
+      <% end %>
+   </ul>
+   </nav>
   </div>
+ </div>
 </header>
