@@ -1,11 +1,12 @@
-<% provide(:title, @user.email) %>
+<% provide(:title, 'Profile') %>
 <div class="row">
-  <aside class="span4">
-    <section>
-      <h1>
-        
-        <%= @user.email %>
-      </h1>
-    </section>
-  </aside>
+  <div class="span6 offset3">
+    <%@profile=@user.profile %>
+    <%if @profile%>
+	<p> <%= @user.email %> <p>
+    <p> <%= @profile.name %> <p>
+	<p> <%= @profile.address %> <p>
+	<p> <%= @profile.city %>  <%= @profile.state%> <%= @profile.zip %> <p>
+    <%end%>		
+  </div>
 </div>
