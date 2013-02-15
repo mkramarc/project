@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     if @user.save
       sign_in @user   
       flash[:success] = "Welcome to the Interactive!"       
-      render 'static_pages/home'
+      redirect_to @user
      else
        render 'new'
      end
